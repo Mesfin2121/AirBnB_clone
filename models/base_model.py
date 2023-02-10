@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Define base or parent class for all classes in this project.
+"""
 
 import models
 from datetime import datetime
@@ -6,11 +9,15 @@ from uuid import uuid4
 
 
 class BaseModel():
-    """
-    """
+    """Define all common atributes/methods for other classes"""
 
     def __init__(self, *args, **kwargs):
+        """Initialize a Basemodel object instances
 
+        Args:
+            *args (): We don't use this argument
+            **kwargs (dict): It's dict and it's key is an instances
+        """
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
@@ -27,14 +34,17 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
+        """ """
         class_name = self.__class__.__name__
         return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
 
     def save(self):
+        """ """
         self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self):
+        """ """
         dict_cpy = self.__dict__.copy()
         dict_cpy['id'] = self.id
         dict_cpy['created_at'] = self.created_at.isoformat()
