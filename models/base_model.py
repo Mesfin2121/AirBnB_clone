@@ -9,7 +9,7 @@ from uuid import uuid4
 
 
 class BaseModel():
-    """Define all common atributes/methods for other classes"""
+    """Define all common attributes/methods for other classes"""
 
     def __init__(self, *args, **kwargs):
         """Initialize a Basemodel object instances
@@ -34,17 +34,18 @@ class BaseModel():
             models.storage.new(self)
 
     def __str__(self):
-        """ """
+        """Represent class instances."""
         class_name = self.__class__.__name__
         return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
 
     def save(self):
-        """ """
+        """Save changes and updates"""
         self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self):
-        """ """
+        """returns a dictionary containing all keys/values of __dict__
+        of the instance"""
         dict_cpy = self.__dict__.copy()
         dict_cpy['id'] = self.id
         dict_cpy['created_at'] = self.created_at.isoformat()

@@ -44,7 +44,9 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        """ """
+        """Create command for creating new class instances
+        Usage:
+            create <ClassNmae>"""
         args = shlex.split(arg)
 
         if len(arg) == 0:
@@ -56,7 +58,9 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self, arg):
-        """ """
+        """Show command string representation of an instance
+        Usage:
+            show <ClassNmae> <id>"""
         args = shlex.split(arg)
         all_object = storage.all()
 
@@ -72,7 +76,9 @@ class HBNBCommand(cmd.Cmd):
             print(all_object["{}.{}".format(args[0], args[1])])
 
     def do_destroy(self, arg):
-        """ """
+        """ Deletes an instance
+        Usage:
+            destroy <ClassNmae> <id>"""
         args = shlex.split(arg)
         all_object = storage.all()
 
@@ -89,7 +95,9 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, arg):
-        """ """
+        """Print all string representation of all instances
+        Usage:
+            all <ClassName>"""
         args = arg.split(" ")
         all_object = storage.all()
         list_object = []
@@ -107,7 +115,9 @@ class HBNBCommand(cmd.Cmd):
             print(list_object)
 
     def do_update(self, arg):
-        """ """
+        """ Updates an instance based on the class name and id
+        Usage:
+            update <class name> <id> <attribute name> <"attribute value">"""
         args = shlex.split(arg)
         all_object = storage.all()
 
