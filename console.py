@@ -183,7 +183,7 @@ class HBNBCommand(cmd.Cmd):
             argument = argument + arg + " "
         try:
             eval('self.do_' + cmd + '(argument)')
-        except:
+        except ex:
             print("** invalid command **")
 
 

@@ -60,5 +60,5 @@ class FileStorage():
                 dict = json.load(f)
             for i in dict:
                 self.__objects[i] = class_list[dict[i]["__class__"]](**dict[i])
-        except:
+        except ex:
             pass
