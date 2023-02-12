@@ -640,7 +640,7 @@ class TestHBNBCommand_all_method(unittest.TestCase):
     def test_count(self):
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
         with patch("sys.stdout", new=StringIO()) as obtained:
             HBNBCommand().onecmd("create BaseModel")
@@ -652,6 +652,7 @@ class TestHBNBCommand_all_method(unittest.TestCase):
             HBNBCommand().onecmd("create City")
             HBNBCommand().onecmd("create Amenity")
             HBNBCommand().onecmd("create Place")
+
 
 if __name__ == "__main__":
     unittest.main()
