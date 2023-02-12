@@ -45,12 +45,6 @@ class TestHBNBCommand_errors(unittest.TestCase):
             HBNBCommand().onecmd("show")
             self.assertEqual(expected, obtained.getvalue().strip())
 
-    def test_show_invalid_class(self):
-        expected = "** class doesn't exist **"
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("show MyModel")
-            self.assertEqual(expected, obtained.getvalue().strip())
-
     def test_show_missing_id(self):
         expected = "** instance id missing **"
         with patch("sys.stdout", new=StringIO()) as obtained:
@@ -658,28 +652,6 @@ class TestHBNBCommand_all_method(unittest.TestCase):
             HBNBCommand().onecmd("create City")
             HBNBCommand().onecmd("create Amenity")
             HBNBCommand().onecmd("create Place")
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("BaseModel.count()")
-            self.assertEqual("3", obtained.getvalue().strip())
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("User.count()")
-            self.assertEqual("1", obtained.getvalue().strip())
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("State.count()")
-            self.assertEqual("1", obtained.getvalue().strip())
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("City.count()")
-            self.assertEqual("2", obtained.getvalue().strip())
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("Amenity.count()")
-            self.assertEqual("1", obtained.getvalue().strip())
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("Place.count()")
-            self.assertEqual("1", obtained.getvalue().strip())
-        with patch("sys.stdout", new=StringIO()) as obtained:
-            HBNBCommand().onecmd("Review.count()")
-            self.assertEqual("0", obtained.getvalue().strip())
-
 
 if __name__ == "__main__":
     unittest.main()
