@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             key = args[0]+"."+args[1]
             attr = args[2]
-            value = args[3].replace('"', ' ')
+            value = args[3].replace('"', '')
             inst = objects_dic[key]
             if hasattr(inst, attr) and type(getattr(inst, attr)) is int:
                 if (value).isnumeric():
