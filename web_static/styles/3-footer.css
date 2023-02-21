@@ -2,10 +2,17 @@ footer {
     background-color: white;
     height: 60px;
     width: 100%;
-    border-top: 1px solid #CCCCCC;
+    bottom: 0;
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
-    bottom: 0;
+    line-height: 60px;
+    border-top: 1px solid #CCCCCC;
+    /* For alignment take This: */
+    /* text-align: center; */
+    /* line-height: 60px; */
+    /* OR */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
 }

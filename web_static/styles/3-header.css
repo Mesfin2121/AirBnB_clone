@@ -3,13 +3,15 @@ header {
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
+    /* To align logo to center*/
     display: flex;
     align-items: center;
 }
 
-.icon {
-    width: 142px;
+.logo {
+    background-image: url(../images/logo.png);
+    width: 136px;
     height: 60px;
-    background: url("../images/logo.png") no-repeat center;
-    padding-left: 20px;
+    position: absolute;
+    left: 20px;
 }
